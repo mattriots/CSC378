@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Henchman : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
     public Animator animator;
 
-    public float attackInterval = 3.0f;
+    public float attackInterval = 2.0f;
     public float lastAttackTime = 0.0f;
 
     public Transform attackPoint;
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     void Die() 
     {
         Debug.Log("Enemy died");
-        animator.SetTrigger("Death");
+        // animator.SetTrigger("Death");
 
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;

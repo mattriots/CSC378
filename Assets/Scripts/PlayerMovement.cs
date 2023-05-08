@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public float jumpRate = 90f;
     float nextJumpTime = 0f;
 
+    public Animator animator;
+
 
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         // sound = GetComponent<AudioSource>();
     }
 
@@ -20,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
         float horizontalInput = Input.GetAxis("Horizontal");
 
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
         // Set player's velocity based no player input
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
