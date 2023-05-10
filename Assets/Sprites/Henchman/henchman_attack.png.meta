@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,10 +120,10 @@ TextureImporter:
       name: henchman_attack_0
       rect:
         serializedVersion: 2
-        x: 49
-        y: 1664
-        width: 361
-        height: 361
+        x: 45
+        y: 1665
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: henchman_attack_1
       rect:
         serializedVersion: 2
-        x: 593
-        y: 1664
-        width: 361
-        height: 361
+        x: 594
+        y: 1665
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: henchman_attack_2
       rect:
         serializedVersion: 2
-        x: 1137
-        y: 1664
-        width: 344
-        height: 361
+        x: 1138
+        y: 1665
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: henchman_attack_3
       rect:
         serializedVersion: 2
-        x: 49
-        y: 1120
-        width: 276
-        height: 395
+        x: 50
+        y: 1121
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: henchman_attack_4
       rect:
         serializedVersion: 2
-        x: 593
-        y: 1120
-        width: 259
-        height: 395
+        x: 594
+        y: 1121
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: henchman_attack_5
       rect:
         serializedVersion: 2
-        x: 1137
-        y: 1120
-        width: 344
-        height: 367
+        x: 1122
+        y: 1121
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: henchman_attack_7
       rect:
         serializedVersion: 2
-        x: 49
-        y: 576
-        width: 385
-        height: 327
+        x: 50
+        y: 577
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: henchman_attack_9
       rect:
         serializedVersion: 2
-        x: 593
-        y: 576
-        width: 344
-        height: 344
+        x: 594
+        y: 577
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: henchman_attack_10
       rect:
         serializedVersion: 2
-        x: 1137
-        y: 576
-        width: 378
-        height: 361
+        x: 1138
+        y: 577
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: henchman_attack_13
       rect:
         serializedVersion: 2
-        x: 49
-        y: 32
-        width: 361
-        height: 361
+        x: 50
+        y: 33
+        width: 393
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

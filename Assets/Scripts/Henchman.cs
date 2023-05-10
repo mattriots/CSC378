@@ -31,7 +31,7 @@ public class Henchman : MonoBehaviour
 
         Debug.Log("Enemy took " + damage + " damage");
         Debug.Log("Enemy health is now " + currentHealth);
-        // animator.SetTrigger("Hurt");
+        animator.SetTrigger("Hurt");
 
         if (currentHealth <= 0) {
             Die();
@@ -41,7 +41,7 @@ public class Henchman : MonoBehaviour
     void Die() 
     {
         Debug.Log("Enemy died");
-        // animator.SetTrigger("Death");
+        animator.SetTrigger("Death");
 
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;

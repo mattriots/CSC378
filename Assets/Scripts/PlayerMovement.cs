@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if (Time.time >= nextJumpTime) {
             if (Input.GetKey(KeyCode.Space)) 
             {
-            body.velocity = new Vector2(body.velocity.x, speed - 5);
+            body.velocity = new Vector2(body.velocity.x, speed - 1);
             nextJumpTime = Time.time + 70f / jumpRate;
             // sound.Play();
             } 

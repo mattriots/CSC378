@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
         Debug.Log("Enemy took " + damage + " damage");
         Debug.Log("Enemy health is now " + currentHealth);
-        // animator.SetTrigger("Hurt");
+        animator.SetTrigger("Hurt");
 
         if (currentHealth <= 0) {
             Die();
