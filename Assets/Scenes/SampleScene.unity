@@ -24585,8 +24585,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpRate: 50
+  jumpableGround:
+    serializedVersion: 2
+    m_Bits: 256
   animator: {fileID: 0}
+  jump: 0
 --- !u!61 &1291563066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25010,7 +25013,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9dca2155857e7af4885b567044be5e15, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -25403,7 +25406,7 @@ GameObject:
   - component: {fileID: 1538176371}
   - component: {fileID: 1538176373}
   - component: {fileID: 1538176372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
