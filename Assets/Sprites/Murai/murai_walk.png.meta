@@ -120,12 +120,12 @@ TextureImporter:
       name: murai_walk_0
       rect:
         serializedVersion: 2
-        x: 134
-        y: 1630
-        width: 259
-        height: 546
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 135
+        y: 1631
+        width: 257
+        height: 444
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: murai_walk_1
       rect:
         serializedVersion: 2
-        x: 661
-        y: 1630
-        width: 293
-        height: 429
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 662
+        y: 1631
+        width: 291
+        height: 427
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: murai_walk_2
       rect:
         serializedVersion: 2
-        x: 1205
-        y: 1630
-        width: 276
-        height: 429
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1206
+        y: 1631
+        width: 274
+        height: 427
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: murai_walk_3
       rect:
         serializedVersion: 2
-        x: 117
-        y: 1086
-        width: 293
-        height: 463
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 118
+        y: 1087
+        width: 291
+        height: 461
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: murai_walk_4
       rect:
         serializedVersion: 2
-        x: 661
-        y: 1086
-        width: 293
-        height: 446
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 662
+        y: 1087
+        width: 291
+        height: 444
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: murai_walk_5
       rect:
         serializedVersion: 2
-        x: 1205
-        y: 1086
-        width: 293
-        height: 463
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1206
+        y: 1087
+        width: 291
+        height: 461
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: murai_walk_6
       rect:
         serializedVersion: 2
-        x: 117
-        y: 542
-        width: 293
-        height: 446
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 118
+        y: 543
+        width: 291
+        height: 444
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: murai_walk_7
       rect:
         serializedVersion: 2
-        x: 661
-        y: 542
-        width: 276
-        height: 463
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 662
+        y: 543
+        width: 274
+        height: 461
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,12 +288,12 @@ TextureImporter:
       name: murai_walk_8
       rect:
         serializedVersion: 2
-        x: 1205
-        y: 542
-        width: 293
-        height: 429
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1206
+        y: 543
+        width: 291
+        height: 427
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: murai_walk_9
       rect:
         serializedVersion: 2
-        x: 117
+        x: 118
         y: 0
-        width: 293
-        height: 461
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 291
+        height: 460
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

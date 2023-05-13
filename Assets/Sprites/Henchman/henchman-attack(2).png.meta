@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4dd88bd268e13e64b8da224ae8cfef49
+guid: 779087f5d8c61444f9a38d77dbbe3b63
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,211 +117,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: henchman_attack_0
+      name: henchman-attack(2)_0
       rect:
         serializedVersion: 2
         x: 45
-        y: 1665
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 1470
+        width: 315
+        height: 315
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 822425c9ac97ef24ebeb0e5795f4d4ec
-      internalID: -1622484659
+      spriteID: e2dbf5e12c72fbb478e14c586340c2dc
+      internalID: -410481007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_1
+      name: henchman-attack(2)_1
       rect:
         serializedVersion: 2
-        x: 594
-        y: 1665
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 525
+        y: 1470
+        width: 315
+        height: 315
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7caa6c416ac88a14eb813e81512d6164
-      internalID: 1292162670
+      spriteID: 6391334d80cee744aa085488c7b93c89
+      internalID: -1095544584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_2
+      name: henchman-attack(2)_2
       rect:
         serializedVersion: 2
-        x: 1138
-        y: 1665
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1005
+        y: 1470
+        width: 300
+        height: 315
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efbc7ae4fcee1dd42a40610cbb13c92f
-      internalID: 2073938928
+      spriteID: 446f4923b8da66e438dcfe48c9e3fcae
+      internalID: 2135476908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_3
+      name: henchman-attack(2)_3
       rect:
         serializedVersion: 2
-        x: 50
-        y: 1121
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 45
+        y: 990
+        width: 240
+        height: 345
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3bc8fc3bb9194a4198ca7521009cbb4
-      internalID: -1130582125
+      spriteID: 34521659c9bd10947bd8b1d40af14651
+      internalID: 1565752264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_4
+      name: henchman-attack(2)_4
       rect:
         serializedVersion: 2
-        x: 594
-        y: 1121
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 525
+        y: 990
+        width: 225
+        height: 345
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dbe51953e1102a4e928df6b1e66f2f4
-      internalID: -590972628
+      spriteID: e52a1a67429efdb4f9a4c9134a555308
+      internalID: 1988941957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_5
+      name: henchman-attack(2)_5
       rect:
         serializedVersion: 2
-        x: 1122
-        y: 1121
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1005
+        y: 990
+        width: 300
+        height: 315
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b67af0d6f7c4ada498d2baa459dca92c
-      internalID: 1033962256
+      spriteID: 0aa101bdf1528ee479ea3d22b8e57f71
+      internalID: 1537476447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_7
+      name: henchman-attack(2)_7
       rect:
         serializedVersion: 2
-        x: 50
-        y: 577
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 45
+        y: 510
+        width: 340
+        height: 285
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f6916b1f638cf4d8b8e181b75fe09c
-      internalID: 1525157199
+      spriteID: 2262ea79d08faba4f9ec9b40d4b4fb0c
+      internalID: 1029751305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_9
+      name: henchman-attack(2)_9
       rect:
         serializedVersion: 2
-        x: 594
-        y: 577
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 525
+        y: 510
+        width: 300
+        height: 300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95f7bfd0871493b47867eac59e9a975d
-      internalID: -1964820177
+      spriteID: 9369733008b4a6844b7b9e224116ab84
+      internalID: -55585019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_10
+      name: henchman-attack(2)_10
       rect:
         serializedVersion: 2
-        x: 1138
-        y: 577
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1005
+        y: 510
+        width: 330
+        height: 315
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b9d6b62602801e4081f5fbd388171d4
-      internalID: -306845610
+      spriteID: 81fc251f0666d114586fe1458f37160b
+      internalID: 1053295521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: henchman_attack_13
+      name: henchman-attack(2)_13
       rect:
         serializedVersion: 2
-        x: 50
-        y: 33
-        width: 393
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 45
+        y: 30
+        width: 315
+        height: 315
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e3ee321a06807a47b91b525f454ab76
-      internalID: -531831433
+      spriteID: 046b43a294f1a1c4e9e1675e31c8b490
+      internalID: -136092932
       vertices: []
       indices: 
       edges: []
@@ -337,20 +337,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      henchman_attack_0: -1622484659
-      henchman_attack_1: 1292162670
-      henchman_attack_10: -306845610
-      henchman_attack_11: -2028205683
-      henchman_attack_12: 571336484
-      henchman_attack_13: -531831433
-      henchman_attack_2: 2073938928
-      henchman_attack_3: -1130582125
-      henchman_attack_4: -590972628
-      henchman_attack_5: 1033962256
-      henchman_attack_6: -475352988
-      henchman_attack_7: 1525157199
-      henchman_attack_8: 596389739
-      henchman_attack_9: -1964820177
+      henchman-attack(2)_0: -410481007
+      henchman-attack(2)_1: -1095544584
+      henchman-attack(2)_10: 1053295521
+      henchman-attack(2)_11: 519848553
+      henchman-attack(2)_12: 424873441
+      henchman-attack(2)_13: -136092932
+      henchman-attack(2)_2: 2135476908
+      henchman-attack(2)_3: 1565752264
+      henchman-attack(2)_4: 1988941957
+      henchman-attack(2)_5: 1537476447
+      henchman-attack(2)_6: 550296903
+      henchman-attack(2)_7: 1029751305
+      henchman-attack(2)_8: 862248146
+      henchman-attack(2)_9: -55585019
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
