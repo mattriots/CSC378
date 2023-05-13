@@ -16,6 +16,11 @@ public class Enemy : MonoBehaviour
     public LayerMask enemyLayers;
     public int attackDamage = 25;
 
+    public float speed = 2f; // The speed at which the NPC moves
+    public Transform leftPoint; // The left-most point the NPC will move to
+    public Transform rightPoint; // The right-most point the NPC will move to
+    private bool movingRight = true; // Whether the NPC is currently moving right or left
+
     void Awake() {
         animator = GetComponent<Animator>();
         Debug.Log("Enemy health is " + currentHealth);
@@ -49,11 +54,36 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= lastAttackTime + attackInterval  ) {
-            Attack();
-            lastAttackTime = Time.time;
-        }
+        // if (Time.time >= lastAttackTime + attackInterval  ) {
+        //     Attack();
+        //     lastAttackTime = Time.time;
+        // }
+        //animator.SetTrigger("Walk");
     }
+
+    // void Walk(){
+    //     if (movingRight)
+    //     {
+    //         transform.position = Vector2.MoveTowards(transform.position, rightPoint.position, speed * Time.deltaTime);
+    //     }
+    //     else
+    //     {
+    //         transform.position = Vector2.MoveTowards(transform.position, leftPoint.position, speed * Time.deltaTime);
+    //     }
+
+    //     // Check if the NPC has reached its target point, and reverse its direction if it has
+    //     if (transform.position == rightPoint.position)
+    //     {
+    //         movingRight = false;
+    //         GetComponent<Animator>().SetTrigger("Walk"); // Trigger the MoveLeft animation clip
+    //     }
+    //     else if (transform.position == leftPoint.position)
+    //     {
+    //         movingRight = true;
+    //         GetComponent<Animator>().SetTrigger("Walk"); // Trigger the MoveRight animation clip
+    //     }
+    
+    // }
 
     void Attack() 
     {
