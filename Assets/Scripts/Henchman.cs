@@ -12,7 +12,13 @@ public class Henchman : MonoBehaviour
     public float attackInterval = 2.0f;
     public float lastAttackTime = 0.0f;
 
+    [Header ("Attack Parameters")]
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private float range;
+    [SerializeField] private int damage;
+
     public Transform attackPoint;
+    public Transform facePlayer;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public int attackDamage = 25;
@@ -25,6 +31,14 @@ public class Henchman : MonoBehaviour
     public float triggerDist = 0.01f;
     private SpriteRenderer spriteRenderer;
 
+    [Header("Collider Parameters")]
+    [SerializeField] private float colliderDistance;
+    [SerializeField] private BoxCollider2D boxCollider;
+
+    [Header("Player Layer")]
+    [SerializeField] private LayerMask playerLayer;
+    private float cooldownTimer = Mathf.Infinity;
+
     void Awake() {
         animator = GetComponent<Animator>();
         Debug.Log("Enemy health is " + currentHealth);
@@ -34,6 +48,7 @@ public class Henchman : MonoBehaviour
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     public void TakeDamage(int damage) {
@@ -56,33 +71,30 @@ public class Henchman : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
     }
+
     // Update is called once per frame
    void Update()
     {
-        ///calculate distance to player 
+        //calculate distance to player 
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        Debug.Log(distanceToPlayer);
-        if(distanceToPlayer < triggerDist){
-            Attack();
-            Debug.Log("Close to the player");
+        //Debug.Log(distanceToPlayer);
+        if(distanceToPlayer < triggerDist ){
+            if(movingLeft == false){
+                spriteRenderer.flipX = true;
+            }
+            Attack(); 
+            //Debug.Log("Close to the player");
         }
-        // {
-        //     //animator.SetBool("Attack", true);
-        //     Attack();
-        //     //animator.SetBool("Walk", false);
-        //     Debug.Log("close to player");
-        //     isActive = true;
-        // }
-        // else if (distanceToPlayer > triggerDist || isActive){
-        //     Walk();
-        //     //animator.SetBool("Walk", true);
-        //     isActive = false;
-        // }
+    
+       else{ 
+        animator.ResetTrigger("Attack");
+        Walk();
+        //animator.SetBool("Attack", false);
+        if(movingLeft == false){
+            spriteRenderer.flipX = false;
+        }
+        }
 
-        //Put attack inside walk??
-    
-       else{ Walk();}
-    
         
     }
 
@@ -122,8 +134,9 @@ public class Henchman : MonoBehaviour
 
     void Attack() 
     {
-
+    
         animator.SetTrigger("Attack");
+        //Debug.Log("Attacked is called");
 
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
     
@@ -132,6 +145,28 @@ public class Henchman : MonoBehaviour
             Debug.Log("Hitting Player");
             player.GetComponent<PlayerCombat>().TakeDamage(attackDamage);
         }
+
+    
+    }
+
+     private bool hitPlayer()
+    {
+        RaycastHit2D hit = 
+            Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
+            0, Vector2.left, 0, playerLayer);
+
+        if (hit.collider != null)
+            Debug.Log("Test");
+            //playerHealth = hit.transform.GetComponent<Health>();
+
+        return hit.collider != null;
+    }
+
+    private void DamagePlayer()
+    {
+        if (hitPlayer())
+            Debug.Log("Player is hit");
     }
 
     void OnDrawGizmosSelected() 
