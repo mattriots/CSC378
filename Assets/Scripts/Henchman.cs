@@ -61,10 +61,9 @@ public class Henchman : MonoBehaviour
     {
         ///calculate distance to player 
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        Debug.Log(distanceToPlayer);
-        if(distanceToPlayer < triggerDist){
-            Attack();
+        if(distanceToPlayer <= triggerDist){
             Debug.Log("Close to the player");
+            Attack();
         }
         // {
         //     //animator.SetBool("Attack", true);
@@ -81,23 +80,25 @@ public class Henchman : MonoBehaviour
 
         //Put attack inside walk??
     
-       else{ Walk();}
+       
+        Walk();
+        
     
         
     }
 
     void Walk(){
-
+        
+        animator.SetTrigger("Walk");
         if (movingLeft)
         {
             transform.position = Vector2.MoveTowards(transform.position, leftPoint.position, speed * Time.deltaTime);
-            animator.SetTrigger("Walk");
                     // Check if the NPC has reached its target point, and reverse its direction if it has
                 if (transform.position == leftPoint.position)
                 {
                     movingLeft = false;
                     spriteRenderer.flipX = false;
-                    
+                
                     //animator.SetTrigger("Walk"); // Trigger the MoveLeft animation clip
                 }
             
@@ -105,7 +106,6 @@ public class Henchman : MonoBehaviour
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, rightPoint.position, speed * Time.deltaTime);
-            animator.SetTrigger("Walk");
 
             if (transform.position == rightPoint.position)
                 {
@@ -113,9 +113,7 @@ public class Henchman : MonoBehaviour
                     spriteRenderer.flipX = true;
                     //animator.SetTrigger("Walk"); // Trigger the MoveRight animation clip
                 }
-        }
-    
-                
+        }    
       
     
     }

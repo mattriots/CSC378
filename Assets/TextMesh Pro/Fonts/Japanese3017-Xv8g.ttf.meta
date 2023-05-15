@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4b502abfd37ba42ac83eae13b641ce10
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Japanese 3017
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ac6946ff0a98b43eab6bf67666b6786b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
