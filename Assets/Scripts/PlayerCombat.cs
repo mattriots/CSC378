@@ -20,10 +20,15 @@ public class PlayerCombat : MonoBehaviour
     public Playerhealth healthbar;
     public bool isAlive = true;
 
+    public AudioClip[] attackSounds;
+    private AudioSource audioSource;
+    public AudioClip[] hurtSounds;
+
     // Update is called once per frame
 
     void Awake() {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start() {
@@ -49,10 +54,24 @@ public class PlayerCombat : MonoBehaviour
     }
 }   
 
+    void PlayRandomAttackSound()
+    {
+        int index = Random.Range(0, attackSounds.Length); 
+        AudioClip clip = attackSounds[index]; 
+        audioSource.PlayOneShot(clip); 
+    }
+
+    void PlayRandomHurtSound()
+    {
+        int index = Random.Range(0, hurtSounds.Length); // Choose a random index
+        AudioClip clip = hurtSounds[index]; // Get the audio clip at the random index
+        audioSource.PlayOneShot(clip); // Play the audio clip
+    }
+
     void Attack() 
     {
         animator.SetTrigger("Attack");
-
+        PlayRandomAttackSound();
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
     
@@ -64,6 +83,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void TakeDamage(int damage) {
         animator.SetTrigger("Hurt");
+        PlayRandomHurtSound();
+
         currentHealth = currentHealth - damage;
         healthbar.SetHealth(currentHealth);
         Debug.Log("Player took " + damage + " damage");

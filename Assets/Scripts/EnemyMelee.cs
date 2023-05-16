@@ -37,6 +37,9 @@ public class EnemyMelee : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public PlayerCombat playerHealth;
 
+    public AudioClip[] hitSounds;
+    public AudioClip[] deathSounds; 
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -44,6 +47,21 @@ public class EnemyMelee : MonoBehaviour
         //enemyPatrol = GetComponentInParent<EnemyPatrol>();
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void PlayRandomHitSound()
+    {
+        int index = Random.Range(0, hitSounds.Length); 
+        AudioClip clip = hitSounds[index]; 
+        audioSource.PlayOneShot(clip); 
+    }
+
+    void PlayRandomDeathSound()
+    {
+        int index = Random.Range(0, deathSounds.Length);
+        AudioClip clip = deathSounds[index]; 
+        audioSource.PlayOneShot(clip);
     }
 
     public void TakeDamage(int damage) {
@@ -52,6 +70,7 @@ public class EnemyMelee : MonoBehaviour
         Debug.Log("Enemy took " + damage + " damage");
         Debug.Log("Enemy health is now " + currentHealth);
         animator.SetTrigger("Hurt");
+        PlayRandomHitSound();
 
         if (currentHealth <= 0) {
             Die();
@@ -62,6 +81,7 @@ public class EnemyMelee : MonoBehaviour
     {
         Debug.Log("Enemy died");
         animator.SetTrigger("Death");
+        PlayRandomDeathSound();
 
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
