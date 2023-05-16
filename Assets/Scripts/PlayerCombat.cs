@@ -6,14 +6,20 @@ public class PlayerCombat : MonoBehaviour
 {
     public Animator animator;
 
+    private Transform spawnPoint;
+    private Transform playerPos;
+
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public int attackDamage = 25;
     public float attackRate = 50f;
     float nextAttackTime = 0f;
-    public int maxHealth = 100;
+    public int maxHealth = 125;
     public int currentHealth;
+    public Playerhealth healthbar;
+    public bool isAlive = true;
+
     // Update is called once per frame
 
     void Awake() {
@@ -22,6 +28,9 @@ public class PlayerCombat : MonoBehaviour
 
     void Start() {
         currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
     }
 
     void Update()
@@ -36,6 +45,7 @@ public class PlayerCombat : MonoBehaviour
             // Debug.Log("Time.time = " + Time.time);
             // Debug.Log("nextAttackTime = " + nextAttackTime);
         }
+
     }
 }   
 
@@ -43,18 +53,25 @@ public class PlayerCombat : MonoBehaviour
     {
         animator.SetTrigger("Attack");
 
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
     
         foreach(Collider2D enemy in hitEnemies) 
         {
-            enemy.GetComponent<Henchman>().TakeDamage(attackDamage);
+            enemy.GetComponent<EnemyMelee>().TakeDamage(attackDamage);
         }
     }
 
     public void TakeDamage(int damage) {
+        animator.SetTrigger("Hurt");
         currentHealth = currentHealth - damage;
-
+        healthbar.SetHealth(currentHealth);
         Debug.Log("Player took " + damage + " damage");
+    
+        if(currentHealth < 0) {
+            animator.SetTrigger("Dead");
+            playerPos.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z);
+        }
     }
 
     void OnDrawGizmosSelected() 

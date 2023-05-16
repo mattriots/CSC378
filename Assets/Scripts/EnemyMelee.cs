@@ -2,24 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Henchman : MonoBehaviour
+public class EnemyMelee : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    public Animator animator;
-    public GameObject player;
-
-    public Transform facePlayer;
-
-    public float speed = 2f; // The speed at which the NPC moves
-    public Transform leftPoint; // The left-most point the NPC will move to
-    public Transform rightPoint; // The right-most point the NPC will move to
-    private bool movingLeft = true; // Whether the NPC is currently moving right or left
-    private bool isActive = false;
-   
-    private SpriteRenderer spriteRenderer;
-    public PlayerCombat playerHealth;
-
     [Header ("Attack Parameters")]
     [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
@@ -33,17 +17,33 @@ public class Henchman : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
 
+    //References
+    private Animator animator;
+    //private Health playerHealth;
+    //private EnemyPatrol enemyPatrol;
 
-    void Awake() {
-        animator = GetComponent<Animator>();
-        Debug.Log("Enemy health is " + currentHealth);
-    }
+    public int maxHealth = 100;
+    public int currentHealth;
+    public GameObject player;
 
-    void Start() 
+    public Transform facePlayer;
+
+    public float speed = 2f; // The speed at which the NPC moves
+    public Transform leftPoint; // The left-most point the NPC will move to
+    public Transform rightPoint; // The right-most point the NPC will move to
+    private bool movingLeft = true; // Whether the NPC is currently moving right or left
+    private bool isActive = false;
+   
+    private SpriteRenderer spriteRenderer;
+    public PlayerCombat playerHealth;
+
+
+    private void Awake()
     {
+        animator = GetComponent<Animator>();
+        //enemyPatrol = GetComponentInParent<EnemyPatrol>();
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
     }
 
     public void TakeDamage(int damage) {
@@ -67,36 +67,24 @@ public class Henchman : MonoBehaviour
         this.enabled = false;
     }
 
-    // Update is called once per frame
-   void Update()
-    {
 
-         //Attack only when player in sight?
+    private void Update()
+    {
+        cooldownTimer += Time.deltaTime;
+
+        //Attack only when player in sight?
         if (PlayerInSight())
         {
             if (cooldownTimer >= attackCooldown)
             {
                 if(movingLeft == false)
                     spriteRenderer.flipX = true;
-        
-                Debug.Log("Close to the player");
-                cooldownTimer = 0;
+                cooldownTimer = 3f;
                 animator.SetTrigger("Attack");
             }
         }
-        //calculate distance to player 
-        // float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        // //Debug.Log(distanceToPlayer);
-        // if(distanceToPlayer <= 1.5 ){
 
-        //     if(movingLeft == false){
-        //         spriteRenderer.flipX = true;
-        //     }
-        //     Attack(); 
-        //     Debug.Log("Close to the player");
-        // }
-    
-       else{ 
+        else{ 
             //animator.ResetTrigger("Attack");
             Walk();
             //animator.SetBool("Attack", false);
@@ -105,10 +93,9 @@ public class Henchman : MonoBehaviour
             }
         }
 
-        
     }
 
-    void Walk(){
+     void Walk(){
 
         if (movingLeft)
         {
@@ -139,23 +126,6 @@ public class Henchman : MonoBehaviour
     
     }
 
-    // void Attack() 
-    // {
-    
-    //     animator.SetTrigger("Attack");
-    //     Debug.Log("Attacked is called");
-
-    //     // Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-    
-    //     // foreach(Collider2D player in hitPlayer) 
-    //     // {
-    //     //     Debug.Log("Hitting Player");
-    //     //     Playerhealth.GetComponent<PlayerCombat>().TakeDamage(attackDamage);
-    //     // }
-    //     //hitPlayer();
-
-    
-    // }
 
     private bool PlayerInSight()
     {
@@ -169,6 +139,12 @@ public class Henchman : MonoBehaviour
 
         return hit.collider != null;
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+    }
 
     private void DamagePlayer()
     {
@@ -177,20 +153,5 @@ public class Henchman : MonoBehaviour
             playerHealth.TakeDamage(damage);
         }
     }
-
-    // void OnDrawGizmosSelected() 
-    // {
-    //     if (attackPoint == null){
-    //         return;
-    //     }
     
-    //     Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    // }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
-    }
 }

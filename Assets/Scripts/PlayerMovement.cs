@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
     public bool jump = false;
+    public PlayerCombat player;
 
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
         // sound = GetComponent<AudioSource>();
+        //player = GetComponent<PlayerCombat>();
     }
 
     // public void OnLanding() {
@@ -43,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && IsGrounded()) 
         {
+            animator.SetTrigger("Jump");
             body.velocity = new Vector2(body.velocity.x, speed - 1);
             // jump = true;
             // animator.SetBool("IsJumping", true);
@@ -52,12 +55,12 @@ public class PlayerMovement : MonoBehaviour
         
         
 
-        // Change the sprite depending on the player's movement direction
-        if (horizontalInput > 0) {
-            spriteRenderer.flipX = false; // The sprite faces right by default
-        } else if (horizontalInput < 0) {
-            spriteRenderer.flipX = true; // Flip the sprite to face left
-        }
+            // Change the sprite depending on the player's movement direction
+            if (horizontalInput > 0) {
+                spriteRenderer.flipX = false; // The sprite faces right by default
+            } else if (horizontalInput < 0) {
+                spriteRenderer.flipX = true; // Flip the sprite to face left
+            }
 
     }
 }
