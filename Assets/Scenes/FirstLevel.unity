@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 4
   range: 0.7
-  damage: 125
+  damage: 10
   colliderDistance: -1.03
   boxCollider: {fileID: 45235483}
   playerLayer:
@@ -949,7 +949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.102508545, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.20497, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402517379
@@ -23543,7 +23543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.54, y: 3.21, z: -10}
+  m_LocalPosition: {x: 8.32, y: 0.92, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23558,7 +23558,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a45f5bb7d189ab24fac066a25c0baf17, type: 3}
   m_Name: 
@@ -23866,7 +23866,7 @@ MonoBehaviour:
   attackCooldown: 4
   range: 0.7
   damage: 25
-  colliderDistance: -1.03
+  colliderDistance: -1.6
   boxCollider: {fileID: 637795826}
   playerLayer:
     serializedVersion: 2
@@ -23889,7 +23889,7 @@ Animator:
   m_GameObject: {fileID: 637795822}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f9f6b69b1bb4f094aa3b407d48d57fd8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 87e9df43c401fc841af15287ae69860c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -24091,7 +24091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -346.7, y: 158.3}
+  m_AnchoredPosition: {x: -326, y: 139}
   m_SizeDelta: {x: 127.92, y: 16.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682645900
@@ -24623,7 +24623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 4
   range: 0.7
-  damage: 125
+  damage: 10
   colliderDistance: -1.03
   boxCollider: {fileID: 1111278707}
   playerLayer:
@@ -25360,7 +25360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291563062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.35, y: -1.1, z: 0.0268507}
+  m_LocalPosition: {x: -1.07, y: -2.98, z: 0.0268507}
   m_LocalScale: {x: 0.4271347, y: 0.4271347, z: 0.4271347}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25890,7 +25890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 4
   range: 0.7
-  damage: 125
+  damage: 10
   colliderDistance: -1.03
   boxCollider: {fileID: 1491828996}
   playerLayer:
@@ -31034,7 +31034,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638596882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31044,7 +31044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -69.5, y: 0}
+  m_AnchoredPosition: {x: -85.50003, y: 1}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1638596884
