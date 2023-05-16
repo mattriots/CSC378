@@ -72,12 +72,12 @@ public class EnemyMelee : MonoBehaviour
     {
         cooldownTimer += Time.deltaTime;
 
-        //Attack only when player in sight?
         if (PlayerInSight())
         {
+            Debug.Log("Player is in sight");
             if (cooldownTimer >= attackCooldown)
             {
-                if(movingLeft == false)
+                if(!movingLeft)
                     spriteRenderer.flipX = true;
                 cooldownTimer = 3f;
                 animator.SetTrigger("Attack");

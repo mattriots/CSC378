@@ -70,6 +70,7 @@ public class PlayerCombat : MonoBehaviour
     
         if(currentHealth < 0) {
             animator.SetTrigger("Dead");
+            healthbar.SetHealth(maxHealth);
             playerPos.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z);
         }
     }
