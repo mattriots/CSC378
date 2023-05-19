@@ -275,15 +275,15 @@ MonoBehaviour:
   attackCooldown: 4
   range: 0.7
   damage: 10
-  colliderDistance: -1.03
+  colliderDistance: -1.1
   boxCollider: {fileID: 45235483}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemy: {fileID: 45235480}
   maxHealth: 100
   currentHealth: 100
   player: {fileID: 1291563062}
-  facePlayer: {fileID: 1291563069}
   speed: 2
   leftPoint: {fileID: 2004150204}
   rightPoint: {fileID: 1466137765}
@@ -23948,17 +23948,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 4
-  range: 0.7
+  range: 1.82
   damage: 25
-  colliderDistance: -1.6
+  colliderDistance: -0.12
   boxCollider: {fileID: 637795826}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemy: {fileID: 637795823}
   maxHealth: 200
   currentHealth: 200
   player: {fileID: 1291563062}
-  facePlayer: {fileID: 1291563069}
   speed: 2
   leftPoint: {fileID: 983385392}
   rightPoint: {fileID: 457117984}
@@ -24287,7 +24287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -517, y: 373}
+  m_AnchoredPosition: {x: -224, y: 149}
   m_SizeDelta: {x: 198.99, y: 15.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682645900
@@ -24818,18 +24818,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a05b0f61d646424686d2bdc397cc1f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 4
+  attackCooldown: 0
   range: 0.7
   damage: 10
-  colliderDistance: -1.03
+  colliderDistance: -1.1
   boxCollider: {fileID: 1111278707}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemy: {fileID: 1111278704}
   maxHealth: 100
   currentHealth: 100
   player: {fileID: 1291563062}
-  facePlayer: {fileID: 1291563069}
   speed: 2
   leftPoint: {fileID: 1611212359}
   rightPoint: {fileID: 679969120}
@@ -24884,7 +24884,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2679465, y: 1.5563153}
+  m_Offset: {x: 0.19116849, y: 1.5563153}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -24895,7 +24895,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8108201, y: 3.1222203}
+  m_Size: {x: 2.7290502, y: 3.1222203}
   m_EdgeRadius: 0
 --- !u!212 &1111278708
 SpriteRenderer:
@@ -25247,15 +25247,15 @@ MonoBehaviour:
   attackCooldown: 4
   range: 0.7
   damage: 10
-  colliderDistance: -1.03
+  colliderDistance: -1.1
   boxCollider: {fileID: 1152103103}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemy: {fileID: 1152103100}
   maxHealth: 100
   currentHealth: 100
   player: {fileID: 1291563062}
-  facePlayer: {fileID: 1291563069}
   speed: 2
   leftPoint: {fileID: 1604200994}
   rightPoint: {fileID: 1970137335}
@@ -25684,6 +25684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d95ecea1f3f5ff47bad85b4ace956ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyCol: {fileID: 0}
+  feetCol: {fileID: 1291563066}
+  wallClimbCol: {fileID: 0}
   speed: 10
   jumpableGround:
     serializedVersion: 2
@@ -25700,11 +25703,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1291563062}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2e1d44d406b56cf49a3874a1e96a81ef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09341192, y: 2.1070175}
+  m_Offset: {x: 0.4409809, y: 2.050633}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -25715,7 +25718,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3611794, y: 4.2901344}
+  m_Size: {x: 1.2026188, y: 4.135234}
   m_EdgeRadius: 0
 --- !u!50 &1291563067
 Rigidbody2D:
@@ -25798,7 +25801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291563062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.12, y: -2.88, z: 0.0268507}
+  m_LocalPosition: {x: -2.309, y: -2.961, z: 0.0268507}
   m_LocalScale: {x: 0.4271347, y: 0.4271347, z: 0.4271347}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26098,15 +26101,15 @@ MonoBehaviour:
   attackCooldown: 4
   range: 0.7
   damage: 10
-  colliderDistance: -1.03
+  colliderDistance: -1.1
   boxCollider: {fileID: 1423261814}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemy: {fileID: 1423261811}
   maxHealth: 100
   currentHealth: 100
   player: {fileID: 1291563062}
-  facePlayer: {fileID: 1291563069}
   speed: 2
   leftPoint: {fileID: 1137545157}
   rightPoint: {fileID: 324336427}
@@ -26556,15 +26559,15 @@ MonoBehaviour:
   attackCooldown: 4
   range: 0.7
   damage: 10
-  colliderDistance: -1.03
+  colliderDistance: -1.1
   boxCollider: {fileID: 1491828996}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  enemy: {fileID: 1491828993}
   maxHealth: 100
   currentHealth: 100
   player: {fileID: 1291563062}
-  facePlayer: {fileID: 1291563069}
   speed: 2
   leftPoint: {fileID: 967994736}
   rightPoint: {fileID: 1955517114}
