@@ -9,21 +9,30 @@ public class Henchman : MonoBehaviour
     public Animator animator;
     public GameObject player;
 
-    public float attackInterval = 2.0f;
-    public float lastAttackTime = 0.0f;
-
-    public Transform attackPoint;
-    public float attackRange = 0.5f;
-    public LayerMask enemyLayers;
-    public int attackDamage = 25;
+    public Transform facePlayer;
 
     public float speed = 2f; // The speed at which the NPC moves
     public Transform leftPoint; // The left-most point the NPC will move to
     public Transform rightPoint; // The right-most point the NPC will move to
     private bool movingLeft = true; // Whether the NPC is currently moving right or left
     private bool isActive = false;
-    public float triggerDist = 0.01f;
+   
     private SpriteRenderer spriteRenderer;
+    public PlayerCombat playerHealth;
+
+    [Header ("Attack Parameters")]
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private float range;
+    [SerializeField] private int damage;
+
+    [Header("Collider Parameters")]
+    [SerializeField] private float colliderDistance;
+    [SerializeField] private BoxCollider2D boxCollider;
+
+    [Header("Player Layer")]
+    [SerializeField] private LayerMask playerLayer;
+    private float cooldownTimer = Mathf.Infinity;
+
 
     void Awake() {
         animator = GetComponent<Animator>();
@@ -34,6 +43,7 @@ public class Henchman : MonoBehaviour
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     public void TakeDamage(int damage) {
@@ -56,9 +66,11 @@ public class Henchman : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
     }
+
     // Update is called once per frame
    void Update()
     {
+<<<<<<< HEAD
         ///calculate distance to player 
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
         if(distanceToPlayer <= triggerDist){
@@ -83,7 +95,43 @@ public class Henchman : MonoBehaviour
        
         Walk();
         
+=======
+
+         //Attack only when player in sight?
+        if (PlayerInSight())
+        {
+            if (cooldownTimer >= attackCooldown)
+            {
+                if(movingLeft == false)
+                    spriteRenderer.flipX = true;
+        
+                Debug.Log("Close to the player");
+                cooldownTimer = 0;
+                animator.SetTrigger("Attack");
+            }
+        }
+        //calculate distance to player 
+        // float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        // //Debug.Log(distanceToPlayer);
+        // if(distanceToPlayer <= 1.5 ){
+
+        //     if(movingLeft == false){
+        //         spriteRenderer.flipX = true;
+        //     }
+        //     Attack(); 
+        //     Debug.Log("Close to the player");
+        // }
+>>>>>>> jun-new
     
+       else{ 
+            //animator.ResetTrigger("Attack");
+            Walk();
+            //animator.SetBool("Attack", false);
+            if(movingLeft == false){
+                spriteRenderer.flipX = false;
+            }
+        }
+
         
     }
 
@@ -113,31 +161,67 @@ public class Henchman : MonoBehaviour
                     spriteRenderer.flipX = true;
                     //animator.SetTrigger("Walk"); // Trigger the MoveRight animation clip
                 }
+<<<<<<< HEAD
         }    
       
+=======
+        }
+>>>>>>> jun-new
     
     }
 
-    void Attack() 
-    {
-
-        animator.SetTrigger("Attack");
-
-        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+    // void Attack() 
+    // {
     
-        foreach(Collider2D player in hitPlayer) 
-        {
-            Debug.Log("Hitting Player");
-            player.GetComponent<PlayerCombat>().TakeDamage(attackDamage);
+    //     animator.SetTrigger("Attack");
+    //     Debug.Log("Attacked is called");
+
+    //     // Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+    
+    //     // foreach(Collider2D player in hitPlayer) 
+    //     // {
+    //     //     Debug.Log("Hitting Player");
+    //     //     Playerhealth.GetComponent<PlayerCombat>().TakeDamage(attackDamage);
+    //     // }
+    //     //hitPlayer();
+
+    
+    // }
+
+    private bool PlayerInSight()
+    {
+        RaycastHit2D hit = 
+            Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
+            0, Vector2.left, 0, playerLayer);
+
+        if (hit.collider != null)
+            playerHealth = hit.transform.GetComponent<PlayerCombat>();
+
+        return hit.collider != null;
+    }
+
+    private void DamagePlayer()
+    {
+        if (PlayerInSight()){
+            //Debug.Log("Player is damage");
+            playerHealth.TakeDamage(damage);
         }
     }
 
-    void OnDrawGizmosSelected() 
+    // void OnDrawGizmosSelected() 
+    // {
+    //     if (attackPoint == null){
+    //         return;
+    //     }
+    
+    //     Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    // }
+
+    private void OnDrawGizmos()
     {
-        if (attackPoint == null){
-            return;
-        }
-        
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 }

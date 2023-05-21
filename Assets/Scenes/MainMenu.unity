@@ -132,6 +132,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 35190399}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 35190400}
+>>>>>>> jun-new
   - component: {fileID: 35190401}
   m_Layer: 5
   m_Name: MainMenu
@@ -147,7 +151,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35190398}
+<<<<<<< HEAD
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+>>>>>>> jun-new
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -162,9 +170,27 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 2.4034424, y: 1.4105225}
   m_SizeDelta: {x: 434.8795, y: 500.9568}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+  m_AnchoredPosition: {x: 2.4035, y: 1.4106}
+  m_SizeDelta: {x: 434.8795, y: 500.9568}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &35190400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35190398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e5416d20bb84c498760f6db7ee0628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> jun-new
 --- !u!114 &35190401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +200,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 35190398}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: abbf17e042916694ba0bc5531b592480, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: dfed48b0e7918ac4f89c52db2a7529f7, type: 3}
+>>>>>>> jun-new
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &173263840
@@ -719,12 +749,20 @@ MonoBehaviour:
   m_text: 'Thank you for playing our game!
 
 
+<<<<<<< HEAD
     Lead Progammers:
+=======
+    Team Members:
+>>>>>>> jun-new
 
     Anthony Bui
 
     Vincent
+<<<<<<< HEAD
     Vilora
+=======
+    Viloria
+>>>>>>> jun-new
 
     Jun Liang
 
@@ -1415,7 +1453,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 3bbe68aa275010148a96abe4ce498d28, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: c163c1ef9e7a3104f88682fc1f933336, type: 3}
+>>>>>>> jun-new
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
