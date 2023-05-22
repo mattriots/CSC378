@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProjectile : EnemyDamage
+public class EnemyProjectile : MonoBehaviour
 {
 
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
+    [SerializeField] private int damage;
+
 
     private float lifetime;
     private Animator animator;
     private BoxCollider2D collider;
     private bool hit;
 
+    public PlayerCombat playerHealth;
 
     private void Awake() 
     {
@@ -22,9 +25,10 @@ public class EnemyProjectile : EnemyDamage
 
     public void ActivateProjectile()
     {
+        Debug.Log("in activate projectile");
         hit = false;
         lifetime = 0;
-        GameObject.SetActive(true);
+        gameObject.SetActive(true);
         collider.enabled = true;
     }
 
@@ -42,29 +46,25 @@ public class EnemyProjectile : EnemyDamage
         lifetime += Time.deltaTime;
         if (lifetime > resetTime) 
         {
-            GameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) 
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        hit = true;
-        base.OnTriggerEnter2D(collision);
-        collision.enabled = false;
-
-        Debug.log("Hit with Projectile");
-
-        if (animator != null) 
+        if (collision.gameObject.tag == "Player")
         {
 
-        } else {
-            GameObject.SetActive(false);
+            Debug.Log("Hit player with shuriken");
+            hit = true;
+            gameObject.SetActive(false);
+            // playerHealth = collider.GetComponent<PlayerCombat>();
+            playerHealth.TakeDamage(damage);
         }
- 
     }
 
     private void Deactivate() 
     {
-        GameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

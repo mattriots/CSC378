@@ -58,19 +58,61 @@ public class Ninja : MonoBehaviour
         initScale = enemy.localScale;
     }
 
+    private void Update() 
+    {
+        cooldownTimer += Time.deltaTime;
+
+        if (PlayerInSight())
+        {
+            if (cooldownTimer >= attackCooldown)
+            {   
+                cooldownTimer = 0;
+                RangedAttack();
+            }
+        }
+
+    }
+
+    public void TakeDamage(int damage) {
+        currentHealth = currentHealth - damage;
+
+        Debug.Log("Enemy took " + damage + " damage");
+        Debug.Log("Enemy health is now " + currentHealth);
+        // animator.SetTrigger("Hurt");
+        // PlayRandomHitSound();
+
+        if (currentHealth <= 0) {
+            Die();
+        }
+    }
+
+        void Die() 
+    {
+        Debug.Log("Enemy died");
+        // animator.SetTrigger("Death");
+        // PlayRandomDeathSound();
+
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
+    }
+
     private void RangedAttack() 
     {
-        Debug.log("Throw shuriken");
+        Debug.Log("Throw shuriken");
         cooldownTimer = 0;
-        shurikens[0].transform.position = throwpoint.position;
-        shurikens[0].GetComponent<EnemeyProjectile>().ActivateProjectile();
+        shurikens[FindShuriken()].transform.position = throwpoint.position;
+        Debug.Log("throwpoint");
+
+        shurikens[FindShuriken()].GetComponent<EnemyProjectile>().ActivateProjectile();
+        Debug.Log("activate projectile");
+
     }
 
     private int FindShuriken()
     {
         for (int i = 0; i < shurikens.Length; i++) 
         {
-            if (!shurikens[i].activateInHierarchy) 
+            if (!shurikens[i].activeInHierarchy) 
             {
                 return i;
             }
