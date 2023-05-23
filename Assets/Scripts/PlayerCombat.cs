@@ -26,12 +26,14 @@ public class PlayerCombat : MonoBehaviour
 
     // Update is called once per frame
 
-    void Awake() {
+    void Awake() 
+    {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    void Start() {
+    void Start() 
+    {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
@@ -39,20 +41,20 @@ public class PlayerCombat : MonoBehaviour
     }
 
     void Update()
-{
-    if (Time.time >= nextAttackTime) 
     {
-        if (Input.GetKeyDown(KeyCode.Z)) 
+    if (Time.time >= nextAttackTime) 
         {
+        if (Input.GetKeyDown(KeyCode.Z)) 
+            {
             Attack();
             nextAttackTime = Time.time + 8f / attackRate;
             // Debug.Log("attackRate = " + attackRate);
             // Debug.Log("Time.time = " + Time.time);
             // Debug.Log("nextAttackTime = " + nextAttackTime);
-        }
+            }
 
-    }
-}   
+        }
+    }   
 
     void PlayRandomAttackSound()
     {
@@ -95,6 +97,24 @@ public class PlayerCombat : MonoBehaviour
             currentHealth = maxHealth;
             playerPos.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z);
         }
+    }
+
+    public void healHealth(int healAmount)
+    {
+        currentHealth = currentHealth + healAmount;
+        Debug.Log(currentHealth);
+        if (currentHealth >= maxHealth) 
+        {
+            healthbar.SetHealth(maxHealth);
+            currentHealth = maxHealth;
+            Debug.Log(currentHealth);
+
+        } else {
+            healthbar.SetHealth(currentHealth);
+            Debug.Log(currentHealth);
+
+        }
+
     }
 
     void OnDrawGizmosSelected() 
