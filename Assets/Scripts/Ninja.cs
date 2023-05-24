@@ -28,7 +28,7 @@ public class Ninja : MonoBehaviour
     //private Health playerHealth;
     //private EnemyPatrol enemyPatrol;
 
-    public int maxHealth = 100;
+    public int maxHealth = 75;
     public int currentHealth;
     public GameObject player;
 
@@ -67,6 +67,8 @@ public class Ninja : MonoBehaviour
             if (cooldownTimer >= attackCooldown)
             {   
                 cooldownTimer = 0;
+                animator.SetTrigger("Attack");
+
                 RangedAttack();
             }
         }
