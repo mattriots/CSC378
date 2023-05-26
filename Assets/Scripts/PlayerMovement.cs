@@ -20,14 +20,15 @@ public class PlayerMovement : MonoBehaviour
     public PlayerCombat player;
     private Vector2 originalOffset;
 
+    public bool facingRight = true;
 
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
-        feetCol = GetComponent<BoxCollider2D>();
-        originalOffset = feetCol.offset;
+        // feetCol = GetComponent<BoxCollider2D>();
+        originalOffset = coll.offset;
         // sound = GetComponent<AudioSource>();
    
     }
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded() 
     {
-        return Physics2D.BoxCast(feetCol.bounds.center, feetCol.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 
     private void Update() {
@@ -64,14 +65,29 @@ public class PlayerMovement : MonoBehaviour
         
 
             // Change the sprite depending on the player's movement direction
-            if (horizontalInput > 0) {
-                spriteRenderer.flipX = false; // The sprite faces right by default
-                feetCol.offset = new Vector2(originalOffset.x, feetCol.offset.y); // Reset the collider offset
-                
-            } else if (horizontalInput < 0) {
-                spriteRenderer.flipX = true; // Flip the sprite to face left
-                 feetCol.offset = new Vector2(-originalOffset.x, feetCol.offset.y);
+            if (horizontalInput > 0 && !facingRight) {
 
+                // spriteRenderer.flipX = false; // The sprite faces right by default
+                // coll.offset = new Vector2(originalOffset.x, feetCol.offset.y); // Reset the collider offset
+                Vector2 currentScale = gameObject.transform.localScale;
+
+                currentScale.x *= -1;
+
+                gameObject.transform.localScale = currentScale;
+
+                facingRight = !facingRight;
+
+
+            } else if (horizontalInput < 0 && facingRight) {
+                // spriteRenderer.flipX = true; // Flip the sprite to face left
+                //  coll.offset = new Vector2(-originalOffset.x, feetCol.offset.y);
+                Vector2 currentScale = gameObject.transform.localScale;
+
+                currentScale.x *= -1;
+
+                gameObject.transform.localScale = currentScale;
+
+                facingRight = !facingRight;
             }
     }
 

@@ -24,6 +24,13 @@ public class PlayerCombat : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip[] hurtSounds;
 
+    [Header("Ranged Attack")]
+    [SerializeField] private Transform throwpoint;
+    [SerializeField] private GameObject[] shurikens;
+
+    private float cooldownTimer = Mathf.Infinity;
+
+
     // Update is called once per frame
 
     void Awake() 
@@ -52,6 +59,12 @@ public class PlayerCombat : MonoBehaviour
             // Debug.Log("Time.time = " + Time.time);
             // Debug.Log("nextAttackTime = " + nextAttackTime);
             }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RangedAttack();
+            nextAttackTime = Time.time + 8f / attackRate;
+        }
 
         }
     }   
@@ -89,6 +102,27 @@ public class PlayerCombat : MonoBehaviour
             }
 
         }
+    }
+
+    private void RangedAttack() 
+    {
+        cooldownTimer = 0;
+        shurikens[FindShuriken()].transform.position = throwpoint.position;
+        float direction = transform.localScale.x;
+        shurikens[FindShuriken()].GetComponent<PlayerProjectile>().ActivateProjectile(direction);
+
+    }
+
+    private int FindShuriken()
+    {
+        for (int i = 0; i < shurikens.Length; i++) 
+        {
+            if (!shurikens[i].activeInHierarchy) 
+            {
+                return i;
+            }
+        }
+        return 0;
     }
 
     public void TakeDamage(int damage) {

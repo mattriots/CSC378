@@ -69,7 +69,7 @@ public class Ninja : MonoBehaviour
                 cooldownTimer = 0;
                 animator.SetTrigger("Attack");
 
-                RangedAttack();
+                // RangedAttack();
             }
         }
 

@@ -238,9 +238,10 @@ GameObject:
   - component: {fileID: 45235482}
   - component: {fileID: 45235481}
   - component: {fileID: 45235485}
+  - component: {fileID: 45235486}
   m_Layer: 6
   m_Name: Henchmen (2)
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,6 +305,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e512620070a7e415c8c3dc62ffea0f51, type: 3}
   - {fileID: 8300000, guid: 757c2055e60a24baba7332ffd53005ab, type: 3}
   - {fileID: 8300000, guid: da74b7a07b42b4f95a5eb0d1402c0167, type: 3}
+  rigidbody: {fileID: 0}
 --- !u!95 &45235482
 Animator:
   serializedVersion: 5
@@ -499,6 +501,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &45235486
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45235479}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 500
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &76762361
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +618,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -613,6 +636,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1291563069}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &192077882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 192077883}
+  m_Layer: 0
+  m_Name: PlayerThrowpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &192077883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192077882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.75, y: 1.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1291563069}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &275139215
 GameObject:
@@ -24074,6 +24128,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e512620070a7e415c8c3dc62ffea0f51, type: 3}
   - {fileID: 8300000, guid: 757c2055e60a24baba7332ffd53005ab, type: 3}
   - {fileID: 8300000, guid: da74b7a07b42b4f95a5eb0d1402c0167, type: 3}
+  rigidbody: {fileID: 0}
 --- !u!95 &637795825
 Animator:
   serializedVersion: 5
@@ -24269,6 +24324,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &647772785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647772786}
+  m_Layer: 0
+  m_Name: PlayerHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647772786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647772785}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8321502, y: -1.2548805, z: -0.24372292}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1291563069}
+  - {fileID: 829034949}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654186482
 GameObject:
   m_ObjectHideFlags: 0
@@ -24688,6 +24776,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &829034948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829034949}
+  m_Layer: 0
+  m_Name: ShurikenHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &829034949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829034948}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.700466, y: 1.8982795, z: 0.16289186}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 959280274}
+  m_Father: {fileID: 647772786}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &885546905
 GameObject:
   m_ObjectHideFlags: 0
@@ -24845,6 +24965,159 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &959280273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959280274}
+  - component: {fileID: 959280278}
+  - component: {fileID: 959280277}
+  - component: {fileID: 959280275}
+  - component: {fileID: 959280279}
+  m_Layer: 0
+  m_Name: PlayerShuriken
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &959280274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959280273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.78, y: -2.81, z: 0.08083105}
+  m_LocalScale: {x: 0.07268119, y: 0.07268119, z: 0.07268119}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 829034949}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &959280275
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959280273}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ccf3c112a5867945bdf57b58f118000, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &959280277
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959280273}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11529732, y: 3.9201925}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 7.25, y: 7.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.3038025, y: 7.4567866}
+  m_EdgeRadius: 0
+--- !u!212 &959280278
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959280273}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 314041109, guid: a4920cd2d1e1a114991bf91bac6457bc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &959280279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959280273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53ff9cacdcea7940acf3a2197324c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  resetTime: 2
+  damage: 10
+  direction: 0
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &967994735
 GameObject:
   m_ObjectHideFlags: 0
@@ -25034,13 +25307,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1111278704}
   - component: {fileID: 1111278708}
+  - component: {fileID: 1111278710}
   - component: {fileID: 1111278707}
   - component: {fileID: 1111278706}
   - component: {fileID: 1111278705}
   - component: {fileID: 1111278709}
   m_Layer: 6
   m_Name: Henchmen
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25104,6 +25378,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e512620070a7e415c8c3dc62ffea0f51, type: 3}
   - {fileID: 8300000, guid: 757c2055e60a24baba7332ffd53005ab, type: 3}
   - {fileID: 8300000, guid: da74b7a07b42b4f95a5eb0d1402c0167, type: 3}
+  rigidbody: {fileID: 0}
 --- !u!95 &1111278706
 Animator:
   serializedVersion: 5
@@ -25299,6 +25574,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &1111278710
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111278703}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 500
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1112992407
 GameObject:
   m_ObjectHideFlags: 0
@@ -25590,9 +25886,10 @@ GameObject:
   - component: {fileID: 1152103102}
   - component: {fileID: 1152103101}
   - component: {fileID: 1152103105}
+  - component: {fileID: 1152103106}
   m_Layer: 6
   m_Name: Henchmen (4)
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25656,6 +25953,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e512620070a7e415c8c3dc62ffea0f51, type: 3}
   - {fileID: 8300000, guid: 757c2055e60a24baba7332ffd53005ab, type: 3}
   - {fileID: 8300000, guid: da74b7a07b42b4f95a5eb0d1402c0167, type: 3}
+  rigidbody: {fileID: 0}
 --- !u!95 &1152103102
 Animator:
   serializedVersion: 5
@@ -25851,6 +26149,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &1152103106
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152103099}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 500
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1199489484
 GameObject:
   m_ObjectHideFlags: 0
@@ -25879,8 +26198,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199489484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.77, y: -0.84, z: 0.08083105}
-  m_LocalScale: {x: 0.10838233, y: 0.10838233, z: 0.10838233}
+  m_LocalPosition: {x: -3.6406, y: -0.84, z: 0.08083105}
+  m_LocalScale: {x: 0.07268119, y: 0.07268119, z: 0.07268119}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 493129268}
@@ -26181,6 +26500,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: abae161d86cad481590fc1858d3c2783, type: 3}
   - {fileID: 8300000, guid: cab3739e7dde64a908e0d08006d12af7, type: 3}
   - {fileID: 8300000, guid: 7f59270c072dd4a06b7b383ec85e5057, type: 3}
+  throwpoint: {fileID: 192077883}
+  shurikens:
+  - {fileID: 959280273}
 --- !u!95 &1291563064
 Animator:
   serializedVersion: 5
@@ -26224,6 +26546,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   jump: 0
   player: {fileID: 0}
+  facingRight: 1
 --- !u!61 &1291563066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26331,13 +26654,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291563062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.309, y: -2.961, z: 0.0268507}
+  m_LocalPosition: {x: -0.4768498, y: -1.7061194, z: 0.27057362}
   m_LocalScale: {x: 0.4271347, y: 0.4271347, z: 0.4271347}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 157577044}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  - {fileID: 192077883}
+  m_Father: {fileID: 647772786}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1291563070
 AudioSource:
@@ -26594,9 +26918,10 @@ GameObject:
   - component: {fileID: 1423261813}
   - component: {fileID: 1423261812}
   - component: {fileID: 1423261816}
+  - component: {fileID: 1423261817}
   m_Layer: 6
   m_Name: Henchmen (3)
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26660,6 +26985,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e512620070a7e415c8c3dc62ffea0f51, type: 3}
   - {fileID: 8300000, guid: 757c2055e60a24baba7332ffd53005ab, type: 3}
   - {fileID: 8300000, guid: da74b7a07b42b4f95a5eb0d1402c0167, type: 3}
+  rigidbody: {fileID: 0}
 --- !u!95 &1423261813
 Animator:
   serializedVersion: 5
@@ -26855,6 +27181,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &1423261817
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423261810}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 500
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1424508729
 GameObject:
   m_ObjectHideFlags: 0
@@ -27052,9 +27399,10 @@ GameObject:
   - component: {fileID: 1491828995}
   - component: {fileID: 1491828994}
   - component: {fileID: 1491828998}
+  - component: {fileID: 1491828999}
   m_Layer: 6
   m_Name: Henchmen (1)
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27118,6 +27466,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e512620070a7e415c8c3dc62ffea0f51, type: 3}
   - {fileID: 8300000, guid: 757c2055e60a24baba7332ffd53005ab, type: 3}
   - {fileID: 8300000, guid: da74b7a07b42b4f95a5eb0d1402c0167, type: 3}
+  rigidbody: {fileID: 0}
 --- !u!95 &1491828995
 Animator:
   serializedVersion: 5
@@ -27313,6 +27662,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &1491828999
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491828992}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 500
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1538176367
 GameObject:
   m_ObjectHideFlags: 0
@@ -33293,8 +33663,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067649134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.77, y: -0.84, z: 0.08083105}
-  m_LocalScale: {x: 0.10838233, y: 0.10838233, z: 0.10838233}
+  m_LocalPosition: {x: -3.6529, y: -0.84, z: 0.08083105}
+  m_LocalScale: {x: 0.0760844, y: 0.0760844, z: 0.0760844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 493129268}
@@ -33429,9 +33799,10 @@ GameObject:
   - component: {fileID: 2141241067}
   - component: {fileID: 2141241070}
   - component: {fileID: 2141241065}
+  - component: {fileID: 2141241071}
   m_Layer: 6
   m_Name: Ninja(1)
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33659,7 +34030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1edcc74cb17e0648bc3a8caaf7073a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 3
+  attackCooldown: 1.5
   range: 10
   damage: 25
   throwpoint: {fileID: 367956463}
@@ -33681,3 +34052,24 @@ MonoBehaviour:
   playerHealth: {fileID: 0}
   hitSounds: []
   deathSounds: []
+--- !u!50 &2141241071
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141241063}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

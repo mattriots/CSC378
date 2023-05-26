@@ -43,6 +43,7 @@ public class EnemyMelee : MonoBehaviour
     private AudioSource audioSource;
 
     private Vector3 initScale;
+    public Rigidbody2D rigidbody;
 
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class EnemyMelee : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         initScale = enemy.localScale;
-  
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void PlayRandomHitSound()
@@ -84,6 +85,7 @@ public class EnemyMelee : MonoBehaviour
 
     void Die() 
     {
+        Destroy(rigidbody);
         Debug.Log("Enemy died");
         animator.SetTrigger("Death");
         PlayRandomDeathSound();
