@@ -30,6 +30,8 @@ public class PlayerCombat : MonoBehaviour
 
     private float cooldownTimer = Mathf.Infinity;
 
+    public int shurikenCount;
+
 
     // Update is called once per frame
 
@@ -43,6 +45,8 @@ public class PlayerCombat : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
+        shurikenCount = 0;
+
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
     }
@@ -60,7 +64,7 @@ public class PlayerCombat : MonoBehaviour
             // Debug.Log("nextAttackTime = " + nextAttackTime);
             }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && shurikenCount > 0)
         {
             RangedAttack();
             nextAttackTime = Time.time + 8f / attackRate;
@@ -106,6 +110,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void RangedAttack() 
     {
+        shurikenCount--;
         cooldownTimer = 0;
         shurikens[FindShuriken()].transform.position = throwpoint.position;
         float direction = transform.localScale.x;
@@ -157,6 +162,12 @@ public class PlayerCombat : MonoBehaviour
 
         }
 
+    }
+
+    public void addShuriken() 
+    {
+        shurikenCount++;
+        Debug.Log("shuriken count: " + shurikenCount);
     }
 
     void OnDrawGizmosSelected() 
