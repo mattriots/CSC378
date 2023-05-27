@@ -6,6 +6,7 @@ public class PlayerJumpSounds : MonoBehaviour
 {
     public AudioClip[] jumpSounds; // Drag your audio clips here in inspector
     private AudioSource audioSource;
+    [SerializeField] public PlayerMovement player;
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class PlayerJumpSounds : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump")) // Assuming you use the "Jump" button for jumping
+        if (Input.GetButtonDown("Jump") && player.IsGrounded()) // Assuming you use the "Jump" button for jumping
         {
             Jump();
         }

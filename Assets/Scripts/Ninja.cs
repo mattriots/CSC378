@@ -82,11 +82,25 @@ public class Ninja : MonoBehaviour
         Debug.Log("Enemy took " + damage + " damage");
         Debug.Log("Enemy health is now " + currentHealth);
         animator.SetTrigger("Hurt");
-        // PlayRandomHitSound();
+        PlayRandomHitSound();
 
         if (currentHealth <= 0) {
             Die();
         }
+    }
+
+    void PlayRandomHitSound()
+    {
+        int index = Random.Range(0, hitSounds.Length); 
+        AudioClip clip = hitSounds[index]; 
+        audioSource.PlayOneShot(clip); 
+    }
+
+    void PlayRandomDeathSound()
+    {
+        int index = Random.Range(0, deathSounds.Length);
+        AudioClip clip = deathSounds[index]; 
+        audioSource.PlayOneShot(clip);
     }
 
     void Die() 
@@ -94,7 +108,7 @@ public class Ninja : MonoBehaviour
         Destroy(rigidbody);
         // Debug.Log("Enemy died");
         animator.SetTrigger("Death");
-        // PlayRandomDeathSound();
+        PlayRandomDeathSound();
 
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
