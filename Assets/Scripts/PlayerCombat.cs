@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -31,7 +32,6 @@ public class PlayerCombat : MonoBehaviour
     private float cooldownTimer = Mathf.Infinity;
 
     public int shurikenCount;
-
 
     // Update is called once per frame
 
@@ -139,11 +139,17 @@ public class PlayerCombat : MonoBehaviour
         Debug.Log("Player took " + damage + " damage");
     
         if(currentHealth < 0) {
-            animator.SetTrigger("Dead");
-            healthbar.SetHealth(maxHealth);
-            currentHealth = maxHealth;
-            playerPos.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z);
+            Die();
         }
+    }
+
+    public void Die() 
+    {
+        animator.SetTrigger("Dead");
+        healthbar.SetHealth(maxHealth);
+        currentHealth = maxHealth;
+        // playerPos.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void healHealth(int healAmount)

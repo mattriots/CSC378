@@ -27,7 +27,7 @@ public class Ninja : MonoBehaviour
     private Animator animator;
     //private Health playerHealth;
     //private EnemyPatrol enemyPatrol;
-
+    public Rigidbody2D rigidbody;
     public int maxHealth = 75;
     public int currentHealth;
     public GameObject player;
@@ -56,6 +56,7 @@ public class Ninja : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         initScale = enemy.localScale;
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void Update() 
@@ -80,7 +81,7 @@ public class Ninja : MonoBehaviour
 
         Debug.Log("Enemy took " + damage + " damage");
         Debug.Log("Enemy health is now " + currentHealth);
-        // animator.SetTrigger("Hurt");
+        animator.SetTrigger("Hurt");
         // PlayRandomHitSound();
 
         if (currentHealth <= 0) {
@@ -88,10 +89,11 @@ public class Ninja : MonoBehaviour
         }
     }
 
-        void Die() 
+    void Die() 
     {
-        Debug.Log("Enemy died");
-        // animator.SetTrigger("Death");
+        Destroy(rigidbody);
+        // Debug.Log("Enemy died");
+        animator.SetTrigger("Death");
         // PlayRandomDeathSound();
 
         GetComponent<Collider2D>().enabled = false;
