@@ -152,6 +152,16 @@ public class PlayerCombat : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if collided with the spike GameObject
+        if (collision.CompareTag("Spike"))
+        {
+            // Handle spike collision logic here
+            Die();
+        }
+    }
+
     public void healHealth(int healAmount)
     {
         currentHealth = currentHealth + healAmount;
