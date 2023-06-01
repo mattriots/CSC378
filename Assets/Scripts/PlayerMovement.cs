@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource sound;
     private BoxCollider2D coll;
     [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] private LayerMask climbableWall;
     // public float jumpRate = 90f;
     // float nextJumpTime = 0f;
 
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public bool jump = false;
     public PlayerCombat player;
     private Vector2 originalOffset;
+    private Animator animatorComponent;
 
 
     private void Awake() {
@@ -27,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
         feetCol = GetComponent<BoxCollider2D>();
-        originalOffset = feetCol.offset;
+        wallClimbCol = GetComponent<BoxCollider2D>();
+        originalOffset = feetCol.offset;    
         // sound = GetComponent<AudioSource>();
    
     }
@@ -36,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
     //     animator.SetBool("IsJumping", false);
     //     jump = false;
     // }
+
+
+    private bool isWall(){
+        return Physics2D.BoxCast(wallClimbCol.transform.position, wallClimbCol.size, 0f, Vector2.left, 0.1f, jumpableGround);
+
+    }
 
     private bool IsGrounded() 
     {
@@ -55,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetTrigger("Jump");
             body.velocity = new Vector2(body.velocity.x, speed - 1);
+
             // jump = true;
             // animator.SetBool("IsJumping", true);
             // nextJumpTime = Time.time + 70f / jumpRate;
@@ -66,13 +76,15 @@ public class PlayerMovement : MonoBehaviour
             // Change the sprite depending on the player's movement direction
             if (horizontalInput > 0) {
                 spriteRenderer.flipX = false; // The sprite faces right by default
-                feetCol.offset = new Vector2(originalOffset.x, feetCol.offset.y); // Reset the collider offset
+                coll.offset = new Vector2(originalOffset.x, coll.offset.y); // Reset the collider offset
                 
             } else if (horizontalInput < 0) {
                 spriteRenderer.flipX = true; // Flip the sprite to face left
-                 feetCol.offset = new Vector2(-originalOffset.x, feetCol.offset.y);
+                coll.offset = new Vector2(-originalOffset.x, coll.offset.y);
 
             }
     }
+
+
 
 }
