@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && IsGrounded()) 
         {
             animator.SetTrigger("Jump");
-            body.velocity = new Vector2(body.velocity.x, speed - 1);
+            body.velocity = new Vector2(body.velocity.x, speed + 1);
             // jump = true;
             // animator.SetBool("IsJumping", true);
             // nextJumpTime = Time.time + 70f / jumpRate;

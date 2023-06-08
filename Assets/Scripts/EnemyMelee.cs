@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMelee : MonoBehaviour
 {
@@ -92,6 +93,11 @@ public class EnemyMelee : MonoBehaviour
 
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
+
+        if (gameObject.name == "FinalBoss") {
+            Debug.Log("Loading next scene...");
+            SceneManager.LoadScene("Outro");
+        }
     }
 
 

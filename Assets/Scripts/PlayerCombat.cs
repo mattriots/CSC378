@@ -67,7 +67,7 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && shurikenCount > 0)
         {
             RangedAttack();
-            nextAttackTime = Time.time + 8f / attackRate;
+            nextAttackTime = Time.time + 4f / attackRate;
         }
 
         }
@@ -182,7 +182,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void addShuriken() 
     {
-        shurikenCount++;
+        shurikenCount += 5;
         Debug.Log("shuriken count: " + shurikenCount);
     }
 
