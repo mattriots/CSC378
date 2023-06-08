@@ -8,6 +8,7 @@ public class EnemyMelee : MonoBehaviour
     [Header ("Attack Parameters")]
     [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
+    [SerializeField] private float backRange;
     [SerializeField] private int damage;
 
     [Header("Collider Parameters")]
@@ -95,11 +96,14 @@ public class EnemyMelee : MonoBehaviour
         this.enabled = false;
 
         if (gameObject.name == "FinalBoss") {
-            Debug.Log("Loading next scene...");
-            SceneManager.LoadScene("Outro");
+            Invoke("LoadOutroScene", 2.0f);
         }
     }
 
+    void LoadOutroScene()
+    {
+        SceneManager.LoadScene("Outro");
+    }
 
     private void Update()
     {
@@ -116,9 +120,12 @@ public class EnemyMelee : MonoBehaviour
                 animator.SetTrigger("Attack");
             }
         }
-
+        else if (PlayerIsBehind()) 
+        {
+            Debug.Log("Player is behind");
+        }
         else{ 
-            //animator.ResetTrigger("Attack");
+            animator.ResetTrigger("Attack");
             Walk();
             //animator.SetBool("Attack", false);
 
@@ -184,12 +191,35 @@ public class EnemyMelee : MonoBehaviour
         return hit.collider != null;
     }
 
+    
+    private bool PlayerIsBehind()
+    {
+
+        RaycastHit2D hit = 
+            Physics2D.BoxCast(boxCollider.bounds.center - transform.right * backRange * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * backRange, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
+            0, Vector2.left, 0, playerLayer);
+        
+
+        if (hit.collider != null){
+                Vector2 currentScale = gameObject.transform.localScale;
+                currentScale.x *= -1;
+                gameObject.transform.localScale = currentScale;
+        }
+
+        return hit.collider != null;
+    }
+
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+    
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(boxCollider.bounds.center - transform.right * backRange * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * backRange, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
 
